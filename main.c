@@ -9,8 +9,11 @@ struct attemptStats {
 
 int main() {
 
+
+    printf("Witaj w WordlePL! Twoim zadaniem jest zgadniecie 5-literowego wyrazu w jak najmniejszej ilosci prob.\n Oznaczenia:\n -litera-  -->  dana litera nie znajduje sie w tym wyrazie\n (litera)  -->  dana litera znajduje sie w tym wyrazie, jednak na innym miejscu\n [litera]  -->  dana litera znajduje sie w tym wyrazie dokladnie na tym samym miejscu\n Powodzenia!\n (Po pierwszej rozgrywce twoja nazwa uzytkownika zostanie zapisana i przed nastepna poznasz swoje statystyki!)\n");
+
     char username[100];
-    printf("podaj nazwe uzytkownika:\n");
+    printf("Podaj nazwe uzytkownika:\n");
 
     if (!fgets(username, sizeof username, stdin)) {
         printf("wrong input\n");
@@ -120,7 +123,7 @@ int main() {
         }
 
         if (strlen(guess) != 6) {
-            printf("wrong input, put 5 letter word\n");
+            printf("slowo ma miec 5 liter\n");
             continue;
         }
         attemps++;
@@ -156,7 +159,6 @@ int main() {
         if (correctLetters == 5){
             printf("brawo, wygrana w %d probach!", attemps);
 
-            printf( "%s\n", username);
             for(int i = 0; i < strlen(username)-1; i++){
                 fprintf(statsFile, "%c", username[i]);
             }
